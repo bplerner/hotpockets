@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HOT POCKET OR NOT ?</title>
+
+    <!-- Bootstrap -->
+    <link href="css/page.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="page_title">
+						<h1>Hot Pocket or Not?</h1>
+            <h2>That is the question...</h2>
+					</div>
+				</div>
+			</div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <img id="main_img" src="">
+          <p id="answer"> </p>
+          <br>
+          <br>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-12" id="btns">
+          <form action="form_action.asp">
+          <div class="radiobtn"><label><input type="radio" name="question" value="hp"> Its a Hot Pocket </label></div>
+          <div class="radiobtn"><label><input type="radio" name="question" value="not_hp"> Its a Hot Pocket... NOT </label></div>
+          <br>
+          <div class="btn"><label><input type="button" onClick="checkHP()" value="Submit"></label></div>
+          </form>
+        </div>
+      </div>
+      
+	</div>
+
+  <script>
+    var rnd= Math.floor((Math.random() * 10) + 1);
+    var hp;
+
+    if(rnd <=5){
+      document.getElementById("main_img").src = "img/1.jpg";
+      hp=true;
+    } else {
+      document.getElementById("main_img").src = "img/2.gif";
+      hp=false;
+    }
+    
+
+    function checkHP() {
+      var question = document.forms[0];
+
+      if ((question[0].checked && hp == true) || (question[1].checked && hp == false)) {
+        document.getElementById("main_img").src = "";
+        document.getElementById("answer").innerHTML = "CORRECT!!! You is smart";
+      } else {
+        document.getElementById("main_img").src = "";
+        document.getElementById("answer").innerHTML = "WRONG... SUCKER";
+      }
+    }
+  </script>
+
+  </body>
+  
+</html>
